@@ -20,7 +20,13 @@ for (input of moveInputs) {
             this.style.backgroundImage = 
             `url(${turn})`;
             changeTurn();
-            
+            if (turn == xIMG) {
+                p1TurnShower.classList.add("p1-info__turn--enabled");
+                p2TurnShower.classList.remove("p2-info__turn--enabled");
+            } else {
+                p2TurnShower.classList.add("p2-info__turn--enabled");
+                p1TurnShower.classList.remove("p1-info__turn--enabled");
+            }
         } else {
 
         }
