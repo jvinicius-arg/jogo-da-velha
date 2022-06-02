@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+}
+
+:root {
+    --gray: #ccc;
+    --blue: #5356b4;
+}
+/* 
+header,
+.p1-info,
+.p2-info,
+.result,
+footer {
+    text-align: center;
+} */
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+header {
+    margin: 10px 0;
+}
+
+header h1 {
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 500;
+    color: var(--blue);
+}
+
+header .timer {
+    font-size: 1.3rem;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.p1-info__score,
+.p2-info__score {
+    font-size: 4rem;
+}
+
+.p1-info__turn,
+.p2-info__turn {
+    font-size: 0.8rem;
+    padding: 8px;
+    font-weight: 700;
+    border-radius: 20px;
+    color: var(--gray);
+    border: 2px solid var(--gray);
+}
+
+.p1-info__turn--actived {
+    color: var(--blue);
+    border: 2px solid var(--blue);box-shadow: 0 0 10px;
+}
+
+.game {
+    display: grid;
+    grid-template: 100px 100px 100px / 100px 100px 100px;
+}
+
+.game__input {
+    background-color: var(--gray);
+    margin: 5px;
+    border-radius: 5px;
+}
