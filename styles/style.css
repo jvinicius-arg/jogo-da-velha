@@ -9,16 +9,9 @@
 
 :root {
     --gray: #ccc;
+    --darkgray: #969696;
     --blue: #5356b4;
 }
-/* 
-header,
-.p1-info,
-.p2-info,
-.result,
-footer {
-    text-align: center;
-} */
 
 body {
     height: 100vh;
@@ -34,12 +27,13 @@ header {
 header h1 {
     text-transform: uppercase;
     font-size: 3rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--blue);
 }
 
 header .timer {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
 main {
@@ -63,7 +57,8 @@ main {
     border: 2px solid var(--gray);
 }
 
-.p1-info__turn--actived {
+.p1-info__turn--actived,
+.p2-info__turn--actived {
     color: var(--blue);
     border: 2px solid var(--blue);box-shadow: 0 0 10px;
 }
@@ -77,4 +72,23 @@ main {
     background-color: var(--gray);
     margin: 5px;
     border-radius: 5px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--darkgray);
+    font-weight: 600;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
