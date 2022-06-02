@@ -10,6 +10,7 @@
 :root {
     --gray: #ccc;
     --darkgray: #969696;
+    --lightgray: #e6e6e6;
     --blue: #5356b4;
 }
 
@@ -31,10 +32,10 @@ header h1 {
     color: var(--blue);
 }
 
-header .timer {
+/* header .timer {
     font-size: 1.2rem;
     font-weight: 500;
-}
+} */
 
 main {
     display: flex;
@@ -55,10 +56,11 @@ main {
     border-radius: 20px;
     color: var(--gray);
     border: 2px solid var(--gray);
+    transition: ease-in 100ms;
 }
 
-.p1-info__turn--actived,
-.p2-info__turn--actived {
+.p1-info__turn--enabled,
+.p2-info__turn--enabled {
     color: var(--blue);
     border: 2px solid var(--blue);box-shadow: 0 0 10px;
 }
@@ -72,6 +74,15 @@ main {
     background-color: var(--gray);
     margin: 5px;
     border-radius: 5px;
+    cursor: pointer;
+    transition: ease-in 100ms;
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.game__input:hover {
+    background-color: var(--lightgray);
 }
 
 footer {
