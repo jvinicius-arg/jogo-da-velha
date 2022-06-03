@@ -74,5 +74,8 @@ function matchVerifier () {
 
 function end () {
     overlay.style.display = "block";
-    alert("Fim de jogo");
+    document.body.innerHTML += "<h1 style='position: absolute; top: 50%;left: 50%; transform: translate(-50%,-50%); color: #fff; font-size: 4rem'>FIM DE JOGO! (refresh in 3s)</h1>";
+    setTimeout(() => {
+        location.reload();
+    },3000); 
 }
