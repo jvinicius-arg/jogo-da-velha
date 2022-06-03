@@ -1,6 +1,7 @@
 const moveInputs = document.querySelectorAll(".game__input");
 const p1TurnShower = document.querySelector(".p1-info__turn");
 const p2TurnShower = document.querySelector(".p2-info__turn");
+const overlay = document.querySelector(".finish-overlay");
 
 const xIMG = "./assets/images/x.svg";
 const oIMG = "./assets/images/o.svg";
@@ -38,37 +39,40 @@ for (input of moveInputs) {
     });
 }
 
-
 // Fim de jogo;
 
 function matchVerifier () {
     // Eixo x;
     for (let i = 0; i <= 8; i+=3) {
         if (moveInputs[i].innerHTML == "X" && moveInputs[(i+1)].innerHTML == "X" && moveInputs[(i+2)].innerHTML == "X") {
-            console.log("vitória x x");
+            end();
         } else if (moveInputs[i].innerHTML == "O" && moveInputs[(i+1)].innerHTML == "O" && moveInputs[(i+2)].innerHTML == "O") {
-            console.log("vitória o x");
+            end();
         } 
     }
 
     // Eixo y;
     for (let i = 0; i <= 2; i++) {
         if (moveInputs[i].innerHTML == "X" && moveInputs[(i+3)].innerHTML == "X" && moveInputs[(i+6)].innerHTML == "X") {
-            console.log("vitória x y");
+            end();
         } else if (moveInputs[i].innerHTML == "O" && moveInputs[(i+3)].innerHTML == "O" && moveInputs[(i+6)].innerHTML == "O") {
-            console.log("vitória o y");
+            end();
         } 
     }
 
     // Diagonais;
     if (moveInputs[0].innerHTML == "X" && moveInputs[4].innerHTML == "X" && moveInputs[8].innerHTML == "X") {
-        console.log("vitória x xy");
+        end();
     } else if (moveInputs[0].innerHTML == "O" && moveInputs[4].innerHTML == "O" && moveInputs[8].innerHTML == "O") {
-        console.log("vitória o xy");
+        end();
     } else if (moveInputs[2].innerHTML == "X" && moveInputs[4].innerHTML == "X" && moveInputs[6].innerHTML == "X") {
-        console.log("vitória de x xy")
+        end();
     } else if (moveInputs[2].innerHTML == "O" && moveInputs[4].innerHTML == "O" && moveInputs[6].innerHTML == "O") {
-        console.log("vitória de o xy")
+        end();
     }
 }
 
+function end () {
+    overlay.style.display = "block";
+    alert("Fim de jogo");
+}

@@ -21,6 +21,14 @@ body {
     flex-direction: column;
 }
 
+.finish-overlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000091;
+    position: absolute;
+    display: none;
+}
+
 header {
     margin: 10px 0;
 }
