@@ -59,10 +59,10 @@ main {
     transition: ease-in 100ms;
 }
 
-.p1-info__turn--enabled,
-.p2-info__turn--enabled {
+.p-turn--enabled {
     color: var(--blue);
-    border: 2px solid var(--blue);box-shadow: 0 0 10px;
+    border: 2px solid var(--blue);
+    box-shadow: 0 0 10px;
 }
 
 .game {
@@ -79,6 +79,7 @@ main {
     background-size: 80%;
     background-position: center;
     background-repeat: no-repeat;
+    font-size: 0;
 }
 
 .game__input:hover {
