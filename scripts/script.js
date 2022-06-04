@@ -5,6 +5,7 @@ const overlay = document.querySelector(".overlay");
 const p1Score = document.querySelector(".p1-info__score");
 const p2Score = document.querySelector(".p2-info__score");
 const result = document.querySelector(".__result");
+const confetti = document.querySelector(".overlay__confetti");
 let p1Count = 0;
 let p2Count = 0;
 
@@ -15,13 +16,18 @@ let backTurn = "X";
 
 const changeTurn = () => {
     if (turn == xIMG) {
-        turn = oIMG;
+        turn = oIMG; 
         backTurn = "O";
     } else {
-        turn = xIMG;
-        backTurn = "X";
+        turn = xIMG; // Imagem do turno;
+        backTurn = "X"; // Facilitador de execução;
     }
 }
+
+async function exe () {
+    await end();
+    getPoints();
+} // Executa as funções;
 
 for (input of moveInputs) {
     input.addEventListener("click", function () {
@@ -37,11 +43,9 @@ for (input of moveInputs) {
                 p2TurnShower.classList.add("p-turn--enabled");
                 p1TurnShower.classList.remove("p-turn--enabled");
             }
-        } else {
-            alert("Jogada inválida.");
         }
         matchVerifier();
-    });
+    }); // Troca os turnos e impede uma sobreposição de jogada;
 }
 
 // Fim de jogo;
@@ -98,7 +102,7 @@ function matchVerifier () {
         exe();
     }
 
-}
+} // Verifica as combinações de linha necessárias para finalizar o jogo;
 
 function getPoints () {
     if (xWIN == true) {
@@ -111,7 +115,7 @@ function getPoints () {
         result.innerText = "Vitória de O!";
     } else if (velha == true) {
         result.innerText = "Velha!";
-    }
+    } // Contabiliza vitórias e cria as mensagens;
 
     // Reinicia os booleans;
     xWIN = false;
@@ -125,7 +129,7 @@ function inputsComplete () {
         if (input.innerText != "") {
             velhaIncidence++;
         }
-    }
+    } // Testa se todos os inputs foram preenchidos;
 
     if (velhaIncidence == 9) {
         return true;
@@ -135,6 +139,11 @@ function inputsComplete () {
 }
 
 function end () {
+    confetti.style.display = "block";
+    if (velha == true) {
+        confetti.style.display = "none";
+    } // Se for velha, tira os confetes;
+
     overlay.style.display = "block";
     let i = 0;
     const interval = setInterval(() => {
@@ -149,7 +158,7 @@ function end () {
     again.addEventListener("click", () => {
         for (input of moveInputs) {
             input.style.backgroundImage = null;
-            input.innerHTML = null;
+            input.innerHTML = null; // Reinicia o jogo;
         }
 
         let i = 10;
@@ -159,16 +168,11 @@ function end () {
             if (i == 0) {
                 clearInterval(interval);
             }
-        },20);
+        },20); // Esconde o menu;
 
         setTimeout(() => {
             overlay.style.display = "none";
         },200);
             
     })
-}
-
-async function exe () {
-    await end();
-    getPoints();
 }
