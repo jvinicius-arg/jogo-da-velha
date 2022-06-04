@@ -12,6 +12,23 @@
     --darkgray: #969696;
     --lightgray: #e6e6e6;
     --blue: #5356b4;
+    --black: #000;
+    --white: #fff;
+}
+
+@keyframes confetti-drop {
+    0% {
+        background-position-y: -200%;
+    }
+
+    90% {
+        opacity: 0;
+    }
+
+    100% {
+        background-position-y: 200%;
+        opacity: 0;
+    }
 }
 
 body {
@@ -21,12 +38,64 @@ body {
     flex-direction: column;
 }
 
-.finish-overlay {
-    width: 100vw;
+.overlay {
+    width: 100%;
     height: 100vh;
     background-color: #00000091;
     position: absolute;
     display: none;
+    opacity: 0;
+}
+
+.overlay__confetti {
+    height: 100vh;
+    width: 100%;
+    background: url(../assets/images/confetti.png);
+    background-size: 80%;
+    background-position-y: 0;
+    position: absolute;
+    opacity: 1;
+    animation: confetti-drop 3s ease-out 0s 1 normal forwards;
+    -webkit-animation: confetti-drop 3s ease-out 0s 1 forwards;
+}
+
+.overlay__menu {
+    background-color: var(--white);
+    padding: 30px;
+    width: 50%;
+    border-radius: 50px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.overlay__menu h2 {
+    text-transform: uppercase;
+    font-size: 3rem;
+}
+
+.__again {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--black);
+    position: relative;
+    cursor: pointer;
+    margin: 20px 0 10px 0;
+}
+
+.__again img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    width: 50%;
+}
+
+.overlay__menu p {
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 header {
@@ -39,11 +108,6 @@ header h1 {
     font-weight: 600;
     color: var(--blue);
 }
-
-/* header .timer {
-    font-size: 1.2rem;
-    font-weight: 500;
-} */
 
 main {
     display: flex;
