@@ -6,28 +6,6 @@ const p1Score = document.querySelector(".p1-info__score");
 const p2Score = document.querySelector(".p2-info__score");
 const result = document.querySelector(".__result");
 const confetti = document.querySelector(".overlay__confetti");
-let p1Count = 0;
-let p2Count = 0;
-
-const xIMG = "./assets/images/x.svg";
-const oIMG = "./assets/images/o.svg";
-let turn = xIMG;
-let backTurn = "X";
-
-const changeTurn = () => {
-    if (turn == xIMG) {
-        turn = oIMG; 
-        backTurn = "O";
-    } else {
-        turn = xIMG; // Imagem do turno;
-        backTurn = "X"; // Facilitador de execução;
-    }
-}
-
-async function exe () {
-    await end();
-    getPoints();
-} // Executa as funções;
 
 for (input of moveInputs) {
     input.addEventListener("click", function () {
@@ -47,13 +25,6 @@ for (input of moveInputs) {
         matchVerifier();
     }); // Troca os turnos e impede uma sobreposição de jogada;
 }
-
-// Fim de jogo;
-
-// Verifica quem ganhou;
-let xWIN = false;
-let oWIN = false;
-let velha = false;
 
 function matchVerifier () {
     // Eixo x;
